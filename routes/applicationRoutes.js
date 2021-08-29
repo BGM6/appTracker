@@ -18,18 +18,18 @@ router.route('/myapps')
 
 //Create a new app = localhost:5000/api/app/new - POST request
 router.route('/new')
-	.post(createNewApplication);
+	.post(auth, createNewApplication);
 
 //Get a specific application to update /api/app/:id - GET REQUEST
 router.route('/:id')
-	.get(auth, findApplication);
+	.get(findApplication);
 
 //Update app =  localhost:5000/api/app/update/:id - PUT request
 router.route('/update/:id')
-	.put(auth, updateApplication);
+	.put(updateApplication);
 
 //Delete app =  localhost:5000/api/app/delete/:id - DELETE request
 router.route('/delete/:id')
-	.delete(auth, deleteApplication);
+	.delete(deleteApplication);
 
 export default router;

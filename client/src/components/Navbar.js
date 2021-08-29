@@ -14,6 +14,19 @@ const Navbar = () => {
 						<Link to="/app/new" className="nav-link">Add</Link>
 					</li>
 				</ul>
+				<div className="collapse navbar-collapse flex-grow-1 text-right">
+					<ul className="navbar-nav ms-auto flex-nowrap">
+						<li className="navbar-item">
+							<Link to="#" className="nav-link menu-item">About</Link>
+						</li>
+						<li className="navbar-item">
+							<Link to="#" className="nav-link menu-item">Contact</Link>
+						</li>
+						<li className="navbar-item">
+							<Link to="#" className="nav-link menu-item">Logout</Link>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</nav>
 	);

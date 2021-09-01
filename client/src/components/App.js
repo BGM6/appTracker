@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import NewApplication from './NewApplication';
 import ListApplications from './ListApplications';
 import UpdateApplication from './UpdateApplication';
+import Login from './Login';
 import Landing from './Landing';
 
 
@@ -18,7 +19,8 @@ const App = () => {
 				<div className="ui container">
 					<br/>
 					<Switch>
-						<Route exact path="/all" component={ListApplications}/>
+						<Route path="/all" component={ListApplications}/>
+						<Route path="/auth/login" component={Login}/>
 						<Route path="/app/update/:id" component={UpdateApplication}/>
 						<Route path="/app/new" component={NewApplication}/>
 					</Switch>

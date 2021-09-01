@@ -2,6 +2,10 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const Navbar = () => {
+
+	// const authLinks = (
+	//
+	// )
 	return (
 		<nav className="navbar navbar-dark bg-primary navbar-expand-lg" style={{padding: '1rem'}}>
 			<Link to="/all" className="navbar-brand"><i className="fas fa-edit" style={{fontSize: '2rem'}}/></Link>

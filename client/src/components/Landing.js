@@ -1,10 +1,13 @@
+import './Landing.css';
 import React from 'react';
+
+import Register from './Register';
 
 const Landing = () => {
 	return (
-		<div>
-			Landing Page!
-		</div>
+		<React.Fragment>
+			<Register/>
+		</React.Fragment>
 	);
 };
 

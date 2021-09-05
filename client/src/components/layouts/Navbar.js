@@ -7,8 +7,8 @@ const Navbar = () => {
 	//
 	// )
 	return (
-		<nav className="navbar navbar-dark bg-primary navbar-expand-lg" style={{padding: '1rem'}}>
-			<Link to="/all" className="navbar-brand"><i className="fas fa-edit" style={{fontSize: '2rem'}}/></Link>
+		<nav className="navbar navbar-dark bg-primary navbar-expand-lg" style={{padding: '1rem', zIndex: '100'}}>
+			<Link to="/" className="navbar-brand"><i className="fas fa-edit" style={{fontSize: '2rem'}}/></Link>
 			<div className="collapse navbar-collapse">
 				<ul className="navbar-nav mr-auto">
 					<li className="navbar-item">

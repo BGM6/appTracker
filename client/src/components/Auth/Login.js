@@ -1,25 +1,19 @@
+import './auth.css';
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const Register = () => {
+const Login = () => {
 	return (
-		<div class="my-login-page landing-background">
-			<section className="h-100">
-				<div className="container h-100">
-					<div className="row justify-content-md-center h-100" id="main-container">
+		<div className="my-login-page">
+			<section className="h-100 ">
+				<div className="container h-100 ">
+					<div className="row justify-content-md-center h-100">
 						<div className="card-wrapper">
 
 							<div className="card fat">
 								<div className="card-body">
-									<h4 className="card-title">Register</h4>
+									<h4 className="card-title">Login</h4>
 									<form method="POST" className="my-login-validation" noValidate="">
-										<div className="form-group">
-											<label htmlFor="name">Username</label>
-											<input id="username" type="text" className="form-control" name="username" required autoFocus/>
-											<div className="invalid-feedback">
-												What's your name?
-											</div>
-										</div>
 
 										<div className="form-group">
 											<label htmlFor="email">E-Mail Address</label>
@@ -40,12 +34,12 @@ const Register = () => {
 										<div className="form-group m-0 register-btn-div">
 											<button
 												type="submit"
-												className="btn btn-primary btn-block register-btn">
-												Register
+												className="btn btn-warning btn-block register-btn">
+												Login
 											</button>
 										</div>
 										<div className="mt-4 text-center">
-											Already have an account? <Link to="/auth/login">Login</Link>
+											Don't have an account? <Link to="/auth/register">Register</Link>
 										</div>
 									</form>
 								</div>
@@ -61,4 +55,4 @@ const Register = () => {
 	);
 };
 
-export default Register;
+export default Login;

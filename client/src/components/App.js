@@ -3,13 +3,13 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Navbar from './layouts/Navbar';
-import Dashboard from './Dashboard/Dashboard';
-import NewApplication from './Application/NewApplication';
-import ListApplications from './Application/ListApplications';
-import UpdateApplication from './Application/UpdateApplication';
-import Login from './Auth/Login';
-import Register from './Auth/Register'
-import Landing from './Landing/Landing';
+import Dashboard from './dashboard/Dashboard';
+import NewApplication from './application/NewApplication';
+import ListApplications from './application/ListApplications';
+import UpdateApplication from './application/UpdateApplication';
+import Login from './auth/Login';
+import Register from './auth/Register'
+import Landing from './layouts/Landing';
 
 
 const App = () => {
@@ -21,7 +21,7 @@ const App = () => {
 				<div className="ui container mt-5">
 					<Switch>
 						<Route path="/dashboard" component={Dashboard}/>
-						<Route path="/all" component={ListApplications}/>
+						<Route path="/app/myapps" component={ListApplications}/>
 						<Route path="/auth/login" component={Login}/>
 						<Route path="/auth/register" component={Register}/>
 						<Route path="/app/update/:id" component={UpdateApplication}/>

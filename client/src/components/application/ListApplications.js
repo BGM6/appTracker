@@ -7,7 +7,7 @@ const ListApplications = () => {
 
 	useEffect(() => {
 		const getApps = async () => {
-			const response = await axios.get('/app/all');
+			const response = await axios.get('/app/myapps');
 			setApplications(response.data);
 		};
 		getApps();

@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 dotenv.config();
 
-function auth(req, res, next) {
+function isLoggedIn(req, res, next) {
 	const token = req.header('x-auth-token');
 
 	if (!token) {
@@ -20,5 +20,5 @@ function auth(req, res, next) {
 	}
 }2
 
-export default auth;
+export default isLoggedIn;
 

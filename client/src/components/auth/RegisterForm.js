@@ -2,7 +2,11 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
-const RegisterForm = () => {
+import {connect} from 'react-redux';
+import {setAlert} from '../../actions/alert';
+
+
+const RegisterForm = ({setAlert}) => {
 
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
@@ -12,7 +16,7 @@ const RegisterForm = () => {
 	const onFormSubmit = async (event) => {
 		event.preventDefault();
 		if (password !== matchPassword) {
-			return alert('Password do not match');
+			return setAlert('Password do not match', 'danger');
 		}
 		const newUser = ({name, email, password});
 		const config = {headers: {'Content-Type': 'application/json'}};
@@ -112,4 +116,4 @@ const RegisterForm = () => {
 	);
 };
 
-export default RegisterForm;
+export default connect(null, {setAlert})(RegisterForm);

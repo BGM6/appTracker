@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
-import axios from 'axios';
+import {Link, Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {login} from '../../actions/auth';
 
-const LoginForm = () => {
+const LoginForm = ({login, isAuthenticated}) => {
 
 	const [formData, setFormData] = useState({
 		email: '',
@@ -17,17 +18,13 @@ const LoginForm = () => {
 
 	const formSubmitHandler = async event => {
 		event.preventDefault();
-		try {
-			const user = {email, password};
-			const config = {headers: {'Content-Type': 'application/json'}};
-			const body = JSON.stringify(user);
-			const response = await axios.post('/api/login', body, config);
-			console.log(response.data);
-		} catch (err) {
-			console.error(err.message);
-		}
+		console.log(login(email, password));
 		setFormData({email: '', password: ''});
 	};
+
+	if (isAuthenticated) {
+		return <Redirect to="/app/myapps"/>;
+	}
 
 	return (
 		<div className="card-body">
@@ -84,4 +81,8 @@ const LoginForm = () => {
 	);
 };
 
-export default LoginForm;
+const mapStateToProps = state => ({
+	isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, {login})(LoginForm);

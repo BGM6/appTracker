@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
 import {connect} from 'react-redux';
 import {setAlert} from '../../actions/alert';
 import {register} from '../../actions/auth';
 
 
-const RegisterForm = ({setAlert, register}) => {
+const RegisterForm = ({setAlert, register, isAuthenticated}) => {
 
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
@@ -19,12 +19,16 @@ const RegisterForm = ({setAlert, register}) => {
 			return setAlert('Password do not match', 'danger');
 		} else {
 			register({name, email, password});
-			setName('')
-			setEmail('')
-			setPassword('')
-			setMatchPassword('')
+			setName('');
+			setEmail('');
+			setPassword('');
+			setMatchPassword('');
 		}
 	};
+
+	if(isAuthenticated) {
+		return <Redirect to="/app/myapps"/>;
+	}
 
 	return (
 		<div className="card-body">
@@ -109,4 +113,8 @@ const RegisterForm = ({setAlert, register}) => {
 	);
 };
 
-export default connect(null, {setAlert, register})(RegisterForm);
+const mapStateToProps = state => ({
+	isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, {setAlert, register})(RegisterForm);

@@ -9,10 +9,10 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
 		<div className="collapse navbar-collapse">
 			<ul className="navbar-nav mr-auto">
 				<li className="navbar-item">
-					<Link to="/app/myapps" className="nav-link">Applications</Link>
+					<Link to="/applications" className="nav-link">Applications</Link>
 				</li>
 				<li className="navbar-item">
-					<Link to="/app/new" className="nav-link">Add</Link>
+					<Link to="/new" className="nav-link">Add</Link>
 				</li>
 			</ul>
 			<div className="collapse navbar-collapse flex-grow-1 text-right">
@@ -36,10 +36,10 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
 			<div className="collapse navbar-collapse flex-grow-1 text-right">
 				<ul className="navbar-nav ms-auto flex-nowrap">
 					<li className="navbar-item">
-						<Link to="/auth/register" className="nav-link menu-item">Register</Link>
+						<Link to="/register" className="nav-link menu-item">Register</Link>
 					</li>
 					<li className="navbar-item">
-						<Link to="/auth/login" className="nav-link menu-item">Login</Link>
+						<Link to="/login" className="nav-link menu-item">Login</Link>
 					</li>
 				</ul>
 			</div>

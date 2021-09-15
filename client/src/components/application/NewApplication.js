@@ -27,7 +27,7 @@ const NewApplication = () => {
 			.then(res => console.log(res))
 			.catch(err => console.error(err.message));
 
-		window.location = '/all';
+		window.location = '/applications';
 	};
 	return (
 		<div>

@@ -1,9 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Applications from './Applications';
+import setAuthToken from '../../utils/setAuthToken';
+import store from '../../store';
+import {loadUser} from '../../actions/auth';
 
 const ListApplications = () => {
 	const [applications, setApplications] = useState([]);
+
+	useEffect(() => {
+		if (localStorage.token) {
+			setAuthToken(localStorage.token);
+		}
+		store.dispatch(loadUser());
+	});
 
 	useEffect(() => {
 		const getApps = async () => {

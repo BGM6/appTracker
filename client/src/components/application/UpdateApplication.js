@@ -46,7 +46,7 @@ const UpdateApplication = (props) => {
 
 		updateApplication(props.match.params.id, app);
 
-		window.location = '/all';
+		window.location = '/applications';
 	};
 
 	return (

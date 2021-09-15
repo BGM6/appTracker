@@ -14,17 +14,11 @@ import Routes from './routes/Routes';
 import Alert from './layouts/Alert';
 import setAuthToken from '../utils/setAuthToken';
 
-//checks User is auth every render
-if (localStorage.token) {
-	setAuthToken(localStorage.token);
-}
-
 const App = () => {
-
 	useEffect(() => {
-		//Since this is App.js
-		// We have direct access to the store here
-		//so we don't need to use connect
+		if (localStorage.token) {
+			setAuthToken(localStorage.token);
+		}
 		store.dispatch(loadUser())
 	}, []);
 

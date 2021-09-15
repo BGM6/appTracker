@@ -6,13 +6,8 @@ const showUserApps = catchAsync(async (req, res) => {
 		const applications = await Application.find({
 			user: req.user.id,
 		}).populate('user');
-
-		if (!applications) {
-			return res.status(400).json({msg: 'No applications found'});
-		}
 		res.json(applications);
 	} catch (err) {
-		console.error(err.message);
 		res.status(500).json({msg: 'Server Error', error: err.message});
 	}
 });

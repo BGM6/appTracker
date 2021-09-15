@@ -27,7 +27,7 @@ const RegisterForm = ({setAlert, register, isAuthenticated}) => {
 	};
 
 	if(isAuthenticated) {
-		return <Redirect to="/app/myapps"/>;
+		return <Redirect to="/applications"/>;
 	}
 
 	return (
@@ -105,7 +105,7 @@ const RegisterForm = ({setAlert, register, isAuthenticated}) => {
 					</button>
 				</div>
 				<div className="mt-4 text-center">
-					Already have an account? <Link to="/auth/login">Login</Link>
+					Already have an account? <Link to="/login">Login</Link>
 				</div>
 			</form>
 

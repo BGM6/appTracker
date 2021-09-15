@@ -13,11 +13,11 @@ const Routes = () => {
 		<section className="ui container mt-5">
 			<Switch>
 				<Route path="/dashboard" component={Dashboard}/>
-				<Route path="/app/myapps" component={ListApplications}/>
-				<Route path="/auth/login" component={Login}/>
-				<Route path="/auth/register" component={Register}/>
-				<Route path="/app/update/:id" component={UpdateApplication}/>
-				<Route path="/app/new" component={NewApplication}/>
+				<Route path="/applications" component={ListApplications}/>
+				<Route path="/login" component={Login}/>
+				<Route path="/register" component={Register}/>
+				<Route path="/update/:id" component={UpdateApplication}/>
+				<Route path="/new" component={NewApplication}/>
 			</Switch>
 		</section>
 	);

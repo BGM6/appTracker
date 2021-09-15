@@ -23,7 +23,7 @@ const LoginForm = ({login, isAuthenticated}) => {
 	};
 
 	if (isAuthenticated) {
-		return <Redirect to="/app/myapps"/>;
+		return <Redirect to="/applications"/>;
 	}
 
 	return (
@@ -74,7 +74,7 @@ const LoginForm = ({login, isAuthenticated}) => {
 					</button>
 				</div>
 				<div className="mt-4 text-center">
-					Don't have an account? <Link to="/auth/register">Register</Link>
+					Don't have an account? <Link to="/register">Register</Link>
 				</div>
 			</form>
 		</div>

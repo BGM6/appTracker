@@ -1,6 +1,6 @@
 import express from 'express';
 import {findApplication, updateApplication} from '../controllers/update.js';
-import showALlApplication from '../controllers/show.js';
+// import showALlApplication from '../controllers/show.js';
 import createNewApplication from '../controllers/new.js';
 import deleteApplication from '../controllers/delete.js';
 import showUserApps from '../controllers/showUserApps.js';

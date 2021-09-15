@@ -7,7 +7,6 @@ export const findApplication = catchAsync(async (req, res) => {
 		const foundApplication = await Application.findById(id);
 		res.json(foundApplication);
 	} catch (err) {
-		console.error(err.message);
 		res.status(400).json({msg: 'Sorry something went wrong, unable to retrieve application.', error: err.message});
 	}
 });
@@ -23,7 +22,6 @@ export const updateApplication = catchAsync(async (req, res) => {
 		});
 		res.json(updateApplication);
 	} catch (err) {
-		console.error(err.message);
 		res.status(400).json({msg: 'Sorry something went wrong, unable to update application.', error: err.message});
 	}
 });

@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import {setAlert} from '../../actions/alert';
 import {register} from '../../actions/auth';
 
-
 const RegisterForm = ({setAlert, register, isAuthenticated}) => {
 
 	const [name, setName] = useState('');

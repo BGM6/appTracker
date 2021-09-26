@@ -1,12 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import Applications from './Applications';
-import setAuthToken from '../../utils/setAuthToken';
 import store from '../../store';
+
+import setAuthToken from '../../utils/setAuthToken';
 import {loadUser} from '../../actions/auth';
+
+import Applications from './Applications';
+import ConfirmDeleteModal from '../UI/ConfirmDeleteModal';
 
 const ListApplications = () => {
 	const [applications, setApplications] = useState([]);
+	const [confirmDelete, setConfirmDelete] = useState(false);
 
 	useEffect(() => {
 		if (localStorage.token) {
@@ -27,16 +31,32 @@ const ListApplications = () => {
 		await axios.delete(`/app/delete/${id}`);
 		const remainingApps = applications.filter(app => app._id !== id);
 		setApplications(remainingApps);
+		setConfirmDelete(false);
 	};
 
 	const renderApplication = () => {
 		return applications.map(app => {
-			return <Applications application={app} deleteApp={deleteApplication} key={app._id}/>;
+			return <Applications
+				application={app}
+				key={app._id}
+				confirmDeleteHandler={confirmDeleteHandler}
+			/>;
 		});
 	};
 
+	const confirmDeleteHandler = () => {
+		setConfirmDelete(true);
+	};
+
+	const cancelButtonHandler = () => {
+		setConfirmDelete(false);
+	};
+
+
 	return (
 		<div>
+			{confirmDelete &&
+			<ConfirmDeleteModal cancelBtn={cancelButtonHandler} deleteApp={deleteApplication} applications={applications}/>}
 			<h3>Applications</h3>
 			<table className="table">
 				<thead className="thead-light">

@@ -19,7 +19,7 @@ const UpdateApplication = (props) => {
 			setLink(response.data.link);
 			setDate(new Date(response.data.date));
 		};
-		fillInputs();
+		fillInputs().then(r => r);
 	}, [props.match.params.id]);
 
 	const updateApplication = async (id, app) => {

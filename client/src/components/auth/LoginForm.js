@@ -18,7 +18,7 @@ const LoginForm = ({login, isAuthenticated}) => {
 
 	const formSubmitHandler = async event => {
 		event.preventDefault();
-		console.log(login(email, password));
+		login(email, password);
 		setFormData({email: '', password: ''});
 	};
 
@@ -44,7 +44,7 @@ const LoginForm = ({login, isAuthenticated}) => {
 						name="email"
 						value={email}
 						onChange={formDataHandler}
-						required/>
+						required autoFocus/>
 					<div className="invalid-feedback">
 						Your email is invalid
 					</div>

@@ -3,6 +3,7 @@ import connectDB from './config/db.js';
 import ExpressError from './utils/ExpressError.js';
 import applicationRoute from './routes/applicationRoutes.js';
 import authRoutes from './routes/authRoutes.js';
+import 'path'
 import * as path from 'path';
 
 const PORT = process.env.PORT || 5000;
@@ -33,7 +34,6 @@ app.use((err, req, res, next) => {
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
 
-	const path = path;
 	app.get('*', (req, res) => {
 		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 	});

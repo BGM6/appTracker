@@ -3,7 +3,7 @@ import connectDB from './config/db.js';
 import ExpressError from './utils/ExpressError.js';
 import applicationRoute from './routes/applicationRoutes.js';
 import authRoutes from './routes/authRoutes.js';
-import * as path from 'path';
+import path from 'path';
 
 const PORT = process.env.PORT || 5000;
 const app = express();

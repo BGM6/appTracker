@@ -26,7 +26,7 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
 							<Link to="#!" className="nav-link menu-item">Contact</Link>
 						</li>
 						<li className="navbar-item">
-							<Link to="/" onClick={logout} className="nav-link menu-item">logout</Link>
+							<Link to="/" onClick={logout} className="nav-link menu-item">Logout</Link>
 						</li>
 					</ul>
 				</div>
@@ -41,10 +41,10 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
 				<div className="collapse navbar-collapse flex-grow-1 text-right">
 					<ul className="navbar-nav ms-auto flex-nowrap">
 						<li className="navbar-item">
-							<Link to="/register" className="nav-link menu-item">Register</Link>
+							<Link to="#" className="nav-link menu-item">About</Link>
 						</li>
 						<li className="navbar-item">
-							<Link to="/login" className="nav-link menu-item">Login</Link>
+							<Link to="#!" className="nav-link menu-item">Contact</Link>
 						</li>
 					</ul>
 				</div>

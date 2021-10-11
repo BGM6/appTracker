@@ -35,6 +35,10 @@
     width: 100px;
     margin: 5px;
 }
+
+span {
+    color: #1976D2;
+}
 /* Overlay */
 .dark-overlay {
     background-color: rgba(0, 0, 0, 0.7);

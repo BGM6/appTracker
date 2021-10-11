@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
+import {connect} from 'react-redux';
 import axios from 'axios';
-import store from '../../store';
 
 import setAuthToken from '../../utils/setAuthToken';
 import {loadUser} from '../../actions/auth';
@@ -8,7 +8,7 @@ import {loadUser} from '../../actions/auth';
 import Applications from './Applications';
 import ConfirmDeleteModal from '../UI/ConfirmDeleteModal';
 
-const ListApplications = () => {
+const ListApplications = ({isAuthenticated}) => {
 	const [applications, setApplications] = useState([]);
 	const [confirmDelete, setConfirmDelete] = useState(false);
 
@@ -16,7 +16,9 @@ const ListApplications = () => {
 		if (localStorage.token) {
 			setAuthToken(localStorage.token);
 		}
-		store.dispatch(loadUser());
+		if (isAuthenticated) {
+			loadUser();
+		}
 	});
 
 	useEffect(() => {
@@ -77,4 +79,8 @@ const ListApplications = () => {
 	);
 };
 
-export default ListApplications;
+const mapStateToProps = state => ({
+	isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps)(ListApplications);

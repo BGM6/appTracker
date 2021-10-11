@@ -38,6 +38,7 @@ const LoginForm = ({login, isAuthenticated}) => {
 				<div className="form-group">
 					<label htmlFor="email">E-Mail Address</label>
 					<input
+						placeholder="demologin@demo.com"
 						id="email"
 						type="email"
 						className="form-control"
@@ -53,6 +54,7 @@ const LoginForm = ({login, isAuthenticated}) => {
 				<div className="form-group">
 					<label htmlFor="password">Password</label>
 					<input
+						placeholder="demopassword9"
 						id="password"
 						type="password"
 						className="form-control"

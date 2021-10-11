@@ -2,7 +2,6 @@ import User from '../models/User.js';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import {validationResult} from 'express-validator';
-import catchAsync from '../utils/catchAsync.js';
 
 export const registerUser = async (req, res) => {
 	const errors = validationResult(req);
@@ -41,12 +40,11 @@ export const registerUser = async (req, res) => {
 		await user.save();
 
 	} catch (err) {
-		console.error(err.message);
 		res.status(500).json({msg: 'Server Error occurred when trying to login'});
 	}
 };
 
-export const getUserAndCheckCredential = catchAsync(async (req, res) => {
+export const getUserAndCheckCredential = async (req, res) => {
 	try {
 		//This route is use to load the user in the front-end
 		//by comparing the user token to the token saved in localstorage
@@ -54,12 +52,11 @@ export const getUserAndCheckCredential = catchAsync(async (req, res) => {
 		const user = await User.findById(id).select('-password');
 		res.json(user);
 	} catch (err) {
-		console.error(err.message);
 		res.status(500).send('Server Error');
 	}
-});
+};
 
-export const loginUser = catchAsync(async (req, res) => {
+export const loginUser = async (req, res) => {
 	const errors = validationResult(req);
 	if (!errors.isEmpty()) {
 		return res.status(400).json({errors: errors.array()});
@@ -90,7 +87,6 @@ export const loginUser = catchAsync(async (req, res) => {
 			}
 		);
 	} catch (err) {
-		console.error(err.message);
 		res.status(500).send('Server Error');
 	}
-});
+};

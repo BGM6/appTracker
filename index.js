@@ -1,6 +1,6 @@
 import express from 'express';
 import connectDB from './config/db.js';
-import ExpressError from './utils/ExpressError.js';
+// import ExpressError from './utils/ExpressError.js';
 import applicationRoute from './routes/applicationRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import path from 'path';
@@ -21,15 +21,15 @@ app.use(express.urlencoded({extended: true}));
 app.use('/app', applicationRoute);
 app.use('/api', authRoutes);
 
-app.all('*', (req, res, next) => {
-	next(new ExpressError('Page Not Found', 404));
-});
-
-app.use((err, req, res, next) => {
-	const {statusCode = 500} = err;
-	if (!err.message) err.message = 'Oh No, Something Went Wrong!';
-	if (err) throw new Error(`${err.message}, status code: ${statusCode}`);
-});
+// app.all('*', (req, res, next) => {
+// 	next(new ExpressError('Page Not Found', 404));
+// });
+//
+// app.use((err, req, res, next) => {
+// 	const {statusCode = 500} = err;
+// 	if (!err.message) err.message = 'Oh No, Something Went Wrong!';
+// 	if (err) throw new Error(`${err.message}, status code: ${statusCode}`);
+// });
 
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);

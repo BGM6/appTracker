@@ -1,7 +1,6 @@
 import Application from '../models/Application.js';
-import catchAsync from '../utils/catchAsync.js';
 
-export const findApplication = catchAsync(async (req, res) => {
+export const findApplication = async (req, res) => {
 	try {
 		const {id} = req.params;
 		const foundApplication = await Application.findById(id);
@@ -9,9 +8,9 @@ export const findApplication = catchAsync(async (req, res) => {
 	} catch (err) {
 		res.status(400).json({msg: 'Sorry something went wrong, unable to retrieve application.', error: err.message});
 	}
-});
+};
 
-export const updateApplication = catchAsync(async (req, res) => {
+export const updateApplication = async (req, res) => {
 	try {
 		const {id} = req.params;
 		const {company, position, location, link} = req.body;
@@ -24,4 +23,4 @@ export const updateApplication = catchAsync(async (req, res) => {
 	} catch (err) {
 		res.status(400).json({msg: 'Sorry something went wrong, unable to update application.', error: err.message});
 	}
-});
+};

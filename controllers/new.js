@@ -1,8 +1,7 @@
 import Application from '../models/Application.js';
 import User from '../models/User.js';
-import catchAsync from '../utils/catchAsync.js';
 
-const createNewApplication = catchAsync(async (req, res) => {
+const createNewApplication = async (req, res) => {
 	try {
 
 		await User.findById(req.user.id).select('-password');
@@ -26,6 +25,6 @@ const createNewApplication = catchAsync(async (req, res) => {
 		console.error(err.message);
 		res.json({msg: 'Something went wrong, unable to create a new application.', error: err.message});
 	}
-});
+};
 
 export default createNewApplication;

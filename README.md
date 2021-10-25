@@ -1,4 +1,4 @@
-# appTracker
+# AppTracker
 
 # URL: https://enigmatic-oasis-34459.herokuapp.com/
 
